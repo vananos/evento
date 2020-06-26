@@ -6,11 +6,11 @@ to be useful to store mouse pointer coordinates, when for incoming http request 
 connection related information.
 
 Event object can be matched by a special object, that implements 
-[EventMatcher](src/main/java/io/github/vananos/evento/domain/matcher/EventMatcher.java) interface,
+[EventMatcher](src/main/java/io/github/vananos/evento/domain/matchers/EventMatcher.java) interface,
 EventMatcher is a predicate that can tell us if given event meet some condition.
 
 An Object that is responsible for executing action when Event happens implements 
-[EventHandler](src/main/java/io/github/vananos/evento/domain/EventHandler.java).
+[EventHandler](src/main/java/io/github/vananos/evento/domain/lang/EventHandler.java).
 
 Plenty of EventHandlers is a rule, it can be described using
 [RuleBuilder](src/main/java/io/github/vananos/evento/domain/lang/RuleBuilder.java). 
