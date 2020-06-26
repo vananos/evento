@@ -1,0 +1,6 @@
+.gradle
+/build/
+!gradle-wrapper.jar
+hs_err_pid*
+.idea
+.idea_modules/
