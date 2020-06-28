@@ -1,12 +1,12 @@
 ## Test project description
-Project consists from two parts:
-* test task implementation
-* micro event processing framework
+The Project consists from two parts:
+* test task's implementation
+* the micro event processing framework
 
-Test task main part is in [Main](./Main.java) file.
-All classes that exist only for test task purposes located in lamia package.
+The test task main part is in the [Main](./Main.java) file.
+All classes that exist only for test task's purposes located in the lamia package.
 
-You can read more about framework concepts in separate [README](../../../../../../../README.md)
+You can read more about the framework's concepts in the separate [README](../../../../../../../README.md)
 
 ### Dependencies
 * java 8
@@ -22,14 +22,14 @@ boilerplate code, but these tools usually require IDE plugins, therefore I have 
 ```shell script
  ls | grep build.gradle || echo "Your are staying in a wrong directory"
 ```
-If you're in a wrong directory, you need to set you workdir to project root.
+If you're in a wrong directory, you need to set your workdir to project root.
 
 * Run backend 
 ```shell script
 ./gradlew run
 ```
 
-Somewhere in stdout you should see substring 
+Somewhere in the stdout you should see a substring 
 ```shell script
 oejs.Server:main: Started
 ```

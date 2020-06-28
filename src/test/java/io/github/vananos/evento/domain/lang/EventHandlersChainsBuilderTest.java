@@ -36,6 +36,7 @@ class EventHandlersChainsBuilderTest {
                         .rule(when(secondMatcher).apply(thirdHandler))
                         .rule(when(thirdMatcher).withName("custom name").apply(fourthHandler))
                         .rule(groupOf(Event.class)
+                                .apply(thirdHandler)
                                 .apply(fourthHandler)
                                 .rule(when(thirdMatcher).apply(secondHandler))
                              ));
@@ -44,7 +45,7 @@ class EventHandlersChainsBuilderTest {
                 new EventHandlersChain<>(firstMatcher, asList(firstHandler, secondHandler)),
                 new EventHandlersChain<>(secondMatcher, asList(firstHandler, thirdHandler)),
                 new EventHandlersChain<>(thirdMatcher, asList(firstHandler, fourthHandler)),
-                new EventHandlersChain<>(thirdMatcher, asList(firstHandler, fourthHandler, secondHandler))
+                new EventHandlersChain<>(thirdMatcher, asList(firstHandler, thirdHandler, fourthHandler, secondHandler))
         };
         // and
         EventHandlersChainsBuilder eventHandlersChainsBuilder = new EventHandlersChainsBuilder();

@@ -9,13 +9,13 @@ Event object can be matched by a special object, that implements
 [EventMatcher](src/main/java/io/github/vananos/evento/domain/matchers/EventMatcher.java) interface,
 EventMatcher is a predicate that can tell us if given event meet some condition.
 
-An Object that is responsible for executing action when Event happens implements 
+An Object that is responsible for executing an action when an Event happens implements 
 [EventHandler](src/main/java/io/github/vananos/evento/domain/lang/EventHandler.java).
 
 Plenty of EventHandlers is a rule, it can be described using
 [RuleBuilder](src/main/java/io/github/vananos/evento/domain/lang/RuleBuilder.java). 
 
-Rule can contain another Rules.
+A rule can contain another Rules.
 
 There are two types of RuleBuilder available. GroupRuleBuilderImpl and ConcreteRuleBuilderImpl.
 GroupRuleBuilderImpl can contain another rules, 
@@ -23,7 +23,7 @@ ConcreteRuleBuilderImpl can contain only EventHandlers (it's a leaf of AST).
 
 Execution order
 
-Assume we have next rules description  
+Assume we have next rules' description  
 ```shell script
 rule1 {
     (handler1)
@@ -36,7 +36,7 @@ rule1 {
 
 if event that meets condition1 happens, then handler1 and handler2 will be executed.
 
-In current implementation, once event matched it will not be matched with another
+In current implementation, once an event matched it will not be matched with another
 rules, therefore, only (handler1, handle2) will be executed, 
 but (handler1, handler3) will never be executed.
 ```shell script
