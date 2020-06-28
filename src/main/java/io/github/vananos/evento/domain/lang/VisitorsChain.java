@@ -3,26 +3,26 @@ package io.github.vananos.evento.domain.lang;
 import java.util.ArrayList;
 import java.util.Collection;
 
-class VisitorsChain<E extends ASTVisitor<E>> {
+class VisitorsChain {
 
-    public static <E> VisitorsChainBuilder<E> chainFor(Class<E> type) {
-        return new VisitorsChainBuilder<>();
+    public static <N extends ASTNode<?>> VisitorsChainBuilder<N, ASTVisitor<? super N>> chainFor(Class<N> type) {
+        return new VisitorsChainBuilder();
     }
 
-    public static class VisitorsChainBuilder<E> {
-        private final Collection<ASTVisitor<E>> visitors = new ArrayList<>();
+    public static class VisitorsChainBuilder<N extends ASTNode<?>, V extends ASTVisitor<? super N>> {
+        private final Collection<V> visitors = new ArrayList<>();
 
-        public VisitorsChainBuilder<E> apply(ASTVisitor<E> visitor) {
+        public VisitorsChainBuilder<N, V> apply(V visitor) {
             visitors.add(visitor);
             return this;
         }
 
-        public VisitorsChainBuilder<E> then(ASTVisitor<E> visitor) {
+        public VisitorsChainBuilder<N, V> then(V visitor) {
             visitors.add(visitor);
             return this;
         }
 
-        public ASTVisitor<E> build() {
+        public ASTVisitor<N> build() {
             return node -> visitors.forEach(visitor -> visitor.visit(node));
         }
     }

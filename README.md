@@ -1,7 +1,7 @@
 ### Event processing
-[Event](https://dictionary.cambridge.org/dictionary/english/event) is anything that happens, event can have a type, 
-for example mouse click event or incoming http request event, typed events allow us
-to store different information about different events, for mouse click it seems 
+[Event](https://dictionary.cambridge.org/dictionary/english/event) is anything that happens, event can have a type. 
+For example mouse click event or incoming http request event. Typed events allow us
+to store different information about different events. For mouse click it seems 
 to be useful to store mouse pointer coordinates, when for incoming http request we can store 
 connection related information.
 
@@ -17,7 +17,7 @@ Plenty of EventHandlers is a rule, it can be described using
 
 Rule can contain another Rules.
 
-There are two types of RuleBuilder available, GroupRuleBuilderImpl and ConcreteRuleBuilderImpl.
+There are two types of RuleBuilder available. GroupRuleBuilderImpl and ConcreteRuleBuilderImpl.
 GroupRuleBuilderImpl can contain another rules, 
 ConcreteRuleBuilderImpl can contain only EventHandlers (it's a leaf of AST). 
 
@@ -34,12 +34,11 @@ rule1 {
 }
 ```
 
-now if event that meets condition1 happens, 
-then handler1 and handler2 will be executed.
+if event that meets condition1 happens, then handler1 and handler2 will be executed.
 
 In current implementation, once event matched it will not be matched with another
-rules, therefore only (handler1, handle2) will be executed, 
-but (handler1, handler3) will be never executed.
+rules, therefore, only (handler1, handle2) will be executed, 
+but (handler1, handler3) will never be executed.
 ```shell script
 rule1 {
     (handler1)
@@ -53,7 +52,6 @@ rule1 {
     }
 }
 ```
-
 
 There are minimal interface implementations are available now.
 

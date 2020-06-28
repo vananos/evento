@@ -8,5 +8,5 @@ public interface EventHandlerResolverFactory<E> {
         return rules -> new LinearSearchEventHandlerResolver(rules);
     }
 
-    EventHandlerResolver<E> build(Collection<? extends EventHandlersChain<E>> chainsOfHandlers);
+    EventHandlerResolver<E> build(Collection<EventHandlersChain<E>> chainsOfHandlers);
 }

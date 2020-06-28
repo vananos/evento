@@ -1,7 +1,7 @@
 package io.github.vananos.evento.domain.lang;
 
 import static io.github.vananos.evento.domain.lang.DFSTraversalStrategy.usingDFS;
-import static io.github.vananos.evento.domain.lang.GroupRuleBuilderImpl.group;
+import static io.github.vananos.evento.domain.lang.GroupRuleBuilderImpl.groupOf;
 import static io.github.vananos.evento.domain.lang.VisitorsChain.chainFor;
 import static java.util.Objects.requireNonNull;
 
@@ -15,11 +15,10 @@ public final class EventProcessorBuilder<E> {
         private final GroupRuleBuilderImpl<E> defaultGroupBuilder;
         private EventHandlerResolverFactory<E> eventHandlerResolverFactoryFactory;
 
-        @SuppressWarnings("unchecked")
         public Builder(Class<E> type) {
             requireNonNull(type);
             this.type = type;
-            defaultGroupBuilder = (GroupRuleBuilderImpl<E>) group().withName("#default");
+            defaultGroupBuilder = groupOf(type).withName("#default");
         }
 
         public Builder<E> rule(RuleBuilder<E> ruleBuilder) {

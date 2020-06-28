@@ -6,6 +6,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
+import static java.util.Objects.requireNonNull;
+
 public class ConcreteRuleBuilderImpl<E> implements RuleBuilder<E> {
     public static <E> ConcreteRuleBuilderImpl<E> when(EventMatcher<E> eventMatcher) {
         return new ConcreteRuleBuilderImpl<>(eventMatcher);
@@ -16,6 +18,7 @@ public class ConcreteRuleBuilderImpl<E> implements RuleBuilder<E> {
     private String name;
 
     protected ConcreteRuleBuilderImpl(EventMatcher<E> eventMatcher) {
+        requireNonNull(eventMatcher);
         this.eventMatcher = eventMatcher;
     }
 

@@ -1,7 +1,5 @@
 package io.github.vananos.evento.domain.lang;
 
-import java.util.Collection;
-
 import static java.util.Objects.requireNonNull;
 
 public class DFSTraversalStrategy implements ASTTraversalStrategy {
@@ -18,10 +16,7 @@ public class DFSTraversalStrategy implements ASTTraversalStrategy {
 
     @Override
     public void startFrom(ASTNode<?> root) {
-        Collection<ASTNode<?>> children = (Collection<ASTNode<?>>) root.getChildren();
-
-        children.forEach(this::startFrom);
-
+        root.getChildren().forEach(this::startFrom);
         visitor.visit(root);
     }
 }

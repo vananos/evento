@@ -1,7 +1,6 @@
 package io.github.vananos.evento.domain.lang;
 
 import io.github.vananos.evento.domain.Event;
-import io.github.vananos.evento.domain.lang.*;
 import io.github.vananos.evento.domain.matchers.EventMatcher;
 import org.junit.jupiter.api.Test;
 
@@ -55,7 +54,7 @@ class EventHandlersChainsBuilderTest {
                 .build())
                 .startFrom(ruleBuilder);
         // and
-        Collection<EventHandlersChain> actualChains = eventHandlersChainsBuilder.getEventHandlersChains();
+        Collection<EventHandlersChain<?>> actualChains = eventHandlersChainsBuilder.getEventHandlersChains();
         // then
         assertThat(actualChains).containsExactly(expectedChains);
     }
