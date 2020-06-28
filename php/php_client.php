@@ -7,7 +7,7 @@
     set_error_handler("exception_error_handler");
 
     function prettify_json($json_str) {
-        return json_encode(json_decode($json_str), JSON_PRETTY_PRINT);
+        return json_encode(json_decode($json_str), JSON_PRETTY_PRINT | JSON_UNESCAPED_SLASHES);
     }
 
     function call_api($uri, $method, $token) {
