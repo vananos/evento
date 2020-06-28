@@ -38,9 +38,10 @@
 
     $response = call_api("/getMovie?t=Mile&y=1999", "GET", $auth_header);
     echo prettify_json($response["body"]);
-
+    echo "\n";
     $response = call_api("/getBook?isbn=ISBN:0451526538", "GET", $auth_header);
     echo prettify_json($response["body"]);
+    echo "\n";
 
-    echo("\n\n\nGood bye, thank you for your attention ^_^\n");
+    echo("Good bye, thank you for your attention ^_^\n");
 ?>
